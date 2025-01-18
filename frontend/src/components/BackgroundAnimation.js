@@ -60,7 +60,7 @@ const BackgroundAnimation = () => {
       ))}
       
       {/* Content overlay */}
-      <div className="relative z-10 flex items-center justify-center h-full">
+      {/* <div className="relative z-10 flex items-center justify-center h-full">
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 animate-float">
             ✨ Women Empowerment ✨
@@ -69,7 +69,7 @@ const BackgroundAnimation = () => {
             Breaking barriers, creating futures
           </div>
         </div>
-      </div>
+      </div> */}
       
       {/* Add some floating shapes in the background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

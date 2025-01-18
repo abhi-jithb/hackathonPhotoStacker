@@ -1,16 +1,33 @@
 import React, { useState, useRef } from 'react';
-import { Plus, Upload, X } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
+import axios from 'axios';
 
 const ImageUpload = ({ onImageUpload }) => {
   const [image, setImage] = useState(null);
   const [isHovered, setIsHovered] = useState(false);
   const fileInputRef = useRef(null);
 
-  const handleImageChange = (e) => {
+  const handleImageChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
       setImage(URL.createObjectURL(file));
-      onImageUpload(URL.createObjectURL(file));
+      onImageUpload(URL.createObjectURL(file)); // Update the image preview
+
+      // Prepare the form data to send the image
+      const formData = new FormData();
+      formData.append('image', file);
+
+      try {
+        const response = await axios.post('http://localhost:5000/api/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+          },
+        });
+        // Once uploaded, you can pass the image data to parent (App.js)
+        onImageUpload(response.data); // Update the parent with the uploaded image
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
     }
   };
 
