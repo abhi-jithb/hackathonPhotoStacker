@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes starsMove {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .stars-background {
+    background: url('https://media.giphy.com/media/26gsad5RsZVhKsUDe/giphy.gif?cid=790b76113v3wi0b2sxglwxi1apovjiu1guvrrqc0e8x3fwet&ep=v1_gifs_search&rid=giphy.gif&ct=g');
+    animation: starsMove 20s linear infinite;
+    /* background-color: #000; */
+  }
+  
+  @keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+  
+  .animate-gradient {
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-twinkle {
+    animation: twinkle 3s ease-in-out infinite;
+  }
